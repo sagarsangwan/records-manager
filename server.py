@@ -48,11 +48,11 @@ def is_logged_in():
         cur = mysql.connection.cursor()
         cur.execute(
             "SELECT * FROM tbl_user WHERE session_id = %s", [user_id])
-        current_user = cur.fetchone()[3]
+        current_user = cur.fetchone()
         cur.close()
 
         # checking the session id with session id in database.
-        if user_id and current_user and user_id == current_user:
+        if current_user:
             return True
         else:
             return False
