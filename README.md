@@ -1,6 +1,6 @@
 # Records Manager
 
-An application to accept student registration details from different user.
+An application to accept student registration details from different user. [Visit website](https://recordsmanager.herokuapp.com/)
 
 ## How to run?
 
