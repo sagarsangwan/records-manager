@@ -327,7 +327,7 @@ def signup():
                     cur.execute(
                         'INSERT INTO tbl_user (user_name, user_password) VALUES (%s, %s)', (user_name, password))
                     mysql.connection.commit()
-                    return redirect("/login")
+                    return redirect("/")
         # showing the error message if any error occurs and sending the form data to the signup page.
         except Exception as error:
             return render_template("pages/signup.html", error=error, new_user=new_user)

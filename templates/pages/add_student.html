@@ -57,7 +57,7 @@
         </div>
         <div class="col-xs-12 col-md-6 padding-bottom-small">
 
-            Your name : <input type="text" name="student_name" value="{{form_student.get('name')}}"
+            Your name : <input type="text" name="student_name" value="{{form_student.get('name')}}" required
                 class="form-control " placeholder="Your name">
         </div>
         <div class="col-xs-12 col-md-6 padding-bottom-small">
@@ -79,7 +79,7 @@
         <div class="col-xs-12 col-md-6 padding-bottom-small">
             Select type of internship : <select name="type_of_internship" class="form-select form-select-sm "
                 aria-label=".form-select-sm example">
-                <option selected>{{form_student.get('internship')}} </option>
+                <option selected>{{form_student.get('internship')}}</option>
                 <option value="Web_Developer">Web Developer</option>
                 <option value=" Full Stack Developer"> Full Stack Developer</option>
                 <option value="Others">Others</option>
@@ -129,7 +129,7 @@
         <div class="col-12 padding-bottom-small">
             Your notes:
             <textarea rows="4" type="text" class="form-control" value="{{form_student.get('notes')}} "
-                placeholder="Your notes" name="notes">{{form_student.get('notes')}} </textarea>
+                placeholder="Your notes" name="notes">{{form_student.get('notes')}}</textarea>
         </div>
         <div class="col-12">
             <button class="btn btn-dark " type="submit">Submit</button>
