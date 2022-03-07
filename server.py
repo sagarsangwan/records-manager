@@ -130,7 +130,6 @@ def dashboard():
                 cur.execute("SELECT * FROM tbl_student WHERE student_name LIKE %s AND user_id = %s", (
                     "%" + search + "%", current_user_id[0]))
                 student_account = cur.fetchall()
-                print(student_account)
                 student_account_list = []
                 if student_account:
                     for i in student_account:
@@ -474,7 +473,6 @@ def delete_student(id):
 
 @ app.route("/logout")
 def logout():
-    print(request.cookies.get('session_id'))
     # deleting the session id from the database.
     try:
         cur = mysql.connection.cursor()

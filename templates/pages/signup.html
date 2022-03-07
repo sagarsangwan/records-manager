@@ -1,24 +1,25 @@
-<style>
-    @media (min-width: 768px) {
-        .container {
-            width: auto;
-        }
-
-        .signup-header {
-            width: auto;
-        }
-    }
-</style>
-
-
 {% extends "main.html" %}
 {% block content %}
 
+<style>
+    @media only screen and (max-width: 768px) {
+        .container {
+            width: auto !important;
+        }
+
+        .form-row {
+            padding: 0px !important;
+        }
+    }
+</style>
 <div class="container top-margin border-radius-1 bg-grey mx-auto" style="width: 600px">
     <form method="post" class="row p-5">
         <div class="form-row pt-5 px-5 border-radius-2 mx-1">
+            <div class="col-12">
+                <h2 class="mb-4">SignUp</h1>
+            </div>
             <div class=" col-12 pb-3">
-                <label for="inputEmail4">username</label>
+                <label for="inputEmail4">Username</label>
                 <input type="text" value="{{new_user.get('user_name')}}" name="user_name" required class="form-control"
                     id="inputName4" placeholder="Name">
             </div>
@@ -28,12 +29,12 @@
                     placeholder="Password">
             </div>
             <div class=" col-12 pb-3">
-                <label for="inputPassword4">confirm Password</label>
+                <label for="inputPassword4">Confirm Password</label>
                 <input type="password" class="form-control" required id="inputPassword4" name="confirm_password"
                     placeholder="Re-type Password">
             </div>
             <div class=" col-xs-12 col-md-6 pb-3">
-                <button type="submit" class="btn button btn-dark">Sign in</button>
+                <button type="submit" class="btn button btn-dark">Sign Up</button>
             </div>
         </div>
         <div class="col-12">

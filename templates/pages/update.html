@@ -104,16 +104,25 @@
             Your location : <input type="text" name="location" value="{{student.get('location')}}" required
                 class="form-control" placeholder="Your current location">
         </div>
+        {% if student.get('gender') == 'male' %}
+        {% set male = 'checked' %}
+        {% set female = '' %}
+        {% else %}
+        {% set male = '' %}
+        {% set female = 'checked' %}
+        {% endif %}
         <div class="col-xs-12 col-md-6 padding-bottom-small">
             Select gender :
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male">
+                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" {{ male }}
+                    value="male">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Male
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female">
+                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" {{ female }}
+                    value="female">
                 <label class="form-check-label" for="flexRadioDefault2">
                     Female
                 </label>

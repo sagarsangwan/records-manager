@@ -1,14 +1,27 @@
 {% extends "main.html" %}
 {% block content %}
+<style>
+    @media only screen and (max-width: 768px) {
+        .header-button {
+            margin-bottom: 12px;
+        }
+
+        .header-button {
+            margin-bottom: 12px;
+        }
+    }
+</style>
 
 <div class="bg-dark">
     <div class="container">
         <div class="row py-2">
             <div class="col-6">
-                <h2 class="text-white mb-0">Records Manager</h1>
+                <a href="/">
+                    <h2 class="text-white mb-0">Records Manager</h1>
+                </a>
             </div>
             <div class="col-6 text-end">
-                <a class="btn btn-primary" href="/add-student">Add Student</a>
+                <a class="btn header-button btn-primary" href="/add-student">Add Student</a>
                 <a class="btn btn-primary" href="/logout">Logout</a>
             </div>
         </div>
@@ -17,9 +30,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-4">
-            <a href="/dashboard">
-                <h2 class="">Dashboard</h1>
-            </a>
+            <h2 class="">Dashboard</h1>
         </div>
     </div>
 </div>

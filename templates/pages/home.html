@@ -1,15 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
 <style>
-    @media (min-width: 768px) {
+    @media only screen and (max-width: 768px) {
         .container {
-            width: auto;
+            width: auto !important;
+
+        }
+
+        .padding-row {
+            padding: 24px !important;
         }
     }
 </style>
-
-{% extends "main.html" %}
-{% block content %}
 <div class="container top-margin border-radius-1 bg-grey mx-auto" style="width: 600px">
-    <form method="post" class="row p-5">
+    <form method="post" class="row padding-row p-5">
         <div class="col-12">
             <h2 class="mb-4">LogIn</h1>
         </div>
