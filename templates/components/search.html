@@ -1,0 +1,20 @@
+<style>
+    .home-search-container {
+        margin-top: 20px;
+    }
+</style>
+
+<form class="home-search-container" method="GET" action="/dashboard">
+    <div class="container">
+        <div class="row home-search">
+            <div class="col-12 d-flex">
+                <div class="input-container flex-grow-1 me-2">
+                    <input value="{{search}}" type="text" name="search" class="form-control" placeholder="search...">
+                </div>
+                <div class="button-container">
+                    <button class="btn btn-dark px-5" title="search anything" type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

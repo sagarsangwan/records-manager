@@ -1,0 +1,137 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="bg-dark">
+    <div class="container">
+        <div class="row py-2">
+            <div class="col-6">
+                <a href="/">
+                    <h2 class="text-white mb-0">Records Manager</h1>
+                </a>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn btn-primary" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4">
+            <h2 class="">Add Student</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row text-end">
+    <div class="col-12">
+        {% with messages = get_flashed_messages(category_filter="error") %}
+        {% if messages %}
+        {% for error in messages %} <div class="modal show" id="errorModal" tabindex="-1"
+            aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var myModal = new bootstrap.Modal(document.getElementById('errorModal'))
+                myModal.show()
+            }, false);
+        </script>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+<div class="container my-4 p-4 border-radius-2 bg-grey">
+
+    <form method="POST" class="row" action="">
+
+        <div class="col-12 padding-bottom-small">
+            <i>{{info}}</i>
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+
+            Your name : <input type="text" name="student_name" value="{{form_student.get('name')}}"
+                class="form-control " placeholder="Your name">
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Your email : <input type="email" name="email" value="{{form_student.get('email')}}" required
+                class="form-control" placeholder="Your email">
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Your collage_name : <input type="text" name="collage_name" value="{{form_student.get('collage')}}" required
+                class="form-control" placeholder="Your collage_name">
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Contact number : <input type="tel" name="telephone" value="{{form_student.get('telephone')}}" required
+                class="form-control" placeholder="Your contact number">
+        </div>
+        <div class="col-12 padding-bottom-small">
+            Specialisation : <input type="text" name="specialisation" value="{{form_student.get('specialisation')}}"
+                required class="form-control" placeholder="Your Specialisation">
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Select type of internship : <select name="type_of_internship" class="form-select form-select-sm "
+                aria-label=".form-select-sm example">
+                <option selected>{{form_student.get('internship')}} </option>
+                <option value="Web_Developer">Web Developer</option>
+                <option value=" Full Stack Developer"> Full Stack Developer</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Select degree : <select name="degree" class="form-select form-select-sm "
+                aria-label=".form-select-sm example">
+                <option selected>{{form_student.get('degree')}}</option>
+                <option value="BE">BE</option>
+                <option value="MBA">MBA</option>
+                <option value="MCA">MCA</option>
+                <option value="Msc">Msc</option>
+                <option value="B.Com">B.Com</option>
+                <option value="BA">BA</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div class="col-12 padding-bottom-small">
+            Your location : <input type="text" name="location" value="{{form_student.get('location')}}" required
+                class="form-control" placeholder="Your current location">
+        </div>
+        <div class="col-xs-12 col-md-6 padding-bottom-small">
+            Select gender :
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" checked id="flexRadioDefault1" value="male">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                </label>
+            </div>
+        </div>
+        <div class="col-12 padding-bottom-small">
+            Your notes:
+            <textarea rows="4" type="text" class="form-control" value="{{form_student.get('notes')}} "
+                placeholder="Your notes" name="notes">{{form_student.get('notes')}} </textarea>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-dark " type="submit">Submit</button>
+            <i>{{info}}</i>
+        </div>
+        <br><br><br>
+
+
+</div>
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+<style>
+    @media (min-width: 768px) {
+        .container {
+            width: auto;
+        }
+
+        .signup-header {
+            width: auto;
+        }
+    }
+</style>
+
+
+{% extends "main.html" %}
+{% block content %}
+
+<div class="container top-margin border-radius-1 bg-grey mx-auto" style="width: 600px">
+    <form method="post" class="row p-5">
+        <div class="form-row pt-5 px-5 border-radius-2 mx-1">
+            <div class=" col-12 pb-3">
+                <label for="inputEmail4">username</label>
+                <input type="text" value="{{new_user.get('user_name')}}" name="user_name" required class="form-control"
+                    id="inputName4" placeholder="Name">
+            </div>
+            <div class=" col-12 pb-3">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" required name="user_password" id="inputPassword4"
+                    placeholder="Password">
+            </div>
+            <div class=" col-12 pb-3">
+                <label for="inputPassword4">confirm Password</label>
+                <input type="password" class="form-control" required id="inputPassword4" name="confirm_password"
+                    placeholder="Re-type Password">
+            </div>
+            <div class=" col-xs-12 col-md-6 pb-3">
+                <button type="submit" class="btn button btn-dark">Sign in</button>
+            </div>
+        </div>
+        <div class="col-12">
+            {% if error %}
+            <div class="modal show" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="alert alert-danger">
+                            {{error}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var myModal = new bootstrap.Modal(document.getElementById('errorModal'))
+                    myModal.show()
+                }, false);
+            </script>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

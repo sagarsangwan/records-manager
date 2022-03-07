@@ -1,0 +1,74 @@
+<style>
+    @media (min-width: 768px) {
+        .container {
+            width: auto;
+        }
+    }
+</style>
+
+{% extends "main.html" %}
+{% block content %}
+<div class="container top-margin border-radius-1 bg-grey mx-auto" style="width: 600px">
+    <form method="post" class="row p-5">
+        <div class="col-12">
+            <h2 class="mb-4">LogIn</h1>
+        </div>
+        <div class="col-12 pb-3">
+            User Name :
+            <input type="text" name="username" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="col-12 pb-3">
+            Password :
+            <input type="password" name="password" class="form-control">
+        </div>
+        <div class="col-12 pb-3">
+            <button type="submit" class="btn btn-dark">Login</button>
+            <span class="px-2">or</span>
+            <a href="/signup" class="btn btn-dark">Signup</a>
+        </div>
+        <div class="col-12">
+            <i>{{info}}</i>
+        </div>
+    </form>
+</div>
+
+{% if account_created %}
+<div class="modal show" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="alert alert-danger">
+                {{account_created}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('errorModal'))
+        myModal.show()
+    }, false);
+</script>
+{% endif %}
+{% with messages = get_flashed_messages(category_filter="error") %}
+{% if messages %}
+{% for error in messages %} <div class="modal show" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('errorModal'))
+        myModal.show()
+    }, false);
+</script>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% endblock %}
