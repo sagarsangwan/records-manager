@@ -397,7 +397,7 @@ def update(id):
             if not student_collage:
                 raise Exception("collage_name is required")
             # checking the length of the telephone number and converting it to int.
-            if not student_telephone and len(student_telephone) != 10:
+            if not student_telephone or len(student_telephone) != 10:
                 raise Exception("please enter a valid telephone number")
             if not student_gender:
                 raise Exception("please select gender")
